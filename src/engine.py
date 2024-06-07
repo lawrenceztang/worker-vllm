@@ -68,6 +68,8 @@ class vLLMEngine:
                 n_input_tokens = len(request_output.prompt_token_ids)
                 is_first_output = False
 
+            print(request_output.outputs[0].text)
+            print(request_output.outputs)
             for output in request_output.outputs:
                 output_index = output.index
                 token_counters["total"] += 1
