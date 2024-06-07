@@ -68,8 +68,6 @@ class vLLMEngine:
                 n_input_tokens = len(request_output.prompt_token_ids)
                 is_first_output = False
 
-            logging.info(request_output.outputs[0].text)
-            logging.info(request_output.outputs)
             for output in request_output.outputs:
                 output_index = output.index
                 token_counters["total"] += 1
@@ -106,7 +104,7 @@ class vLLMEngine:
             start = time.time()
             engine = AsyncLLMEngine.from_engine_args(AsyncEngineArgs(**self.config))
             end = time.time()
-            logging.info(f"Initialized vLLM engine in {end - start:.2f}s")
+            logging.info(f"Hi! Initialized vLLM engine in {end - start:.2f}s")
             return engine
         except Exception as e:
             logging.error("Error initializing vLLM engine: %s", e)
